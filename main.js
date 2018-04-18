@@ -15,11 +15,10 @@ $(function() {
         month: month,
       },
       success:function(data) {
-        var vacanze = data
-        console.log(vacanze)
-        var holidays = []
-        holidays.push(vacanze)
-        console.log(holidays)
+        $('.vacanze').html('')
+        for (var i = 0; i < data.holidays.length; i++) {
+          $('.vacanze').append('<div class="risultati">'+data.holidays[i].name + ' nel giorno ' +data.holidays[i].date)
+        }
 
       },
     })
