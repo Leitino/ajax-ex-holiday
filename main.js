@@ -28,8 +28,9 @@ $(function() {
 
           $('.vacanze').append('<div class="risultati">'+data.holidays[i].name + ' nel giorno ' +data.holidays[i].date)
           $('.vacanze').append(data.holidays[i]['date'])
-          $('.vacanze').append('giorno dell anno ' + dateOfYear )
-          $('.vacanze').append('giorno della settimana '+ dayOfWeek)
+          $('.vacanze').append(' giorno dell anno ' + dateOfYear )
+          $('.vacanze').append(' giorno della settimana '+ dayOfWeek)
+          $('.vacanze').append(' sono passati ' + diffInDays + ' minuti')
         }
 
       },
