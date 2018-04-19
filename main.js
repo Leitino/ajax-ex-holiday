@@ -15,9 +15,21 @@ $(function() {
         month: month,
       },
       success:function(data) {
+
         $('.vacanze').html('')
         for (var i = 0; i < data.holidays.length; i++) {
+          var dateOfHoliday = moment(data.holidays[i].date)
+          var dateOfYear =dateOfHoliday.dayOfYear();
+          var dayOfWeek = dateOfHoliday.format('dddd');
+
+          var now = moment();
+          var diffInDays = now.diff(dateOfHoliday, 'minutes')
+          console.log(diffInDays)
+
           $('.vacanze').append('<div class="risultati">'+data.holidays[i].name + ' nel giorno ' +data.holidays[i].date)
+          $('.vacanze').append(data.holidays[i]['date'])
+          $('.vacanze').append('giorno dell anno ' + dateOfYear )
+          $('.vacanze').append('giorno della settimana '+ dayOfWeek)
         }
 
       },
